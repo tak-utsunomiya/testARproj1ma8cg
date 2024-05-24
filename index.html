@@ -16,6 +16,9 @@
             embedded
             gesture-detector
         >
+            <a-assets>
+                <a-asset-item id="wall" src="assets/wall.gltf"></a-asset-item>
+            </a-assets>
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -27,12 +30,13 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-assets>
-                    <a-asset-item id="wall" src="assets/wall.gltf"></a-asset-item>
-                </a-assets>
-                <a-entity gltf-model="#wall"></a-entity>
+                <a-entity 
+                    position="0 0 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#wall">
+                </a-entity>
             </a-marker>
-
             <a-entity camera></a-entity>
         </a-scene>
     </body>
