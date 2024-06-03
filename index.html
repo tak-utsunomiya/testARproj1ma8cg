@@ -34,11 +34,16 @@
                 id="markerA"
             >
                 <a-entity 
-                    position="2.3 0.0 0.9" 
-                    rotation="0 0 0"
-                    scale="4.5 4.5 4.5"
-                    material="opacity: 0.1; transparent: true"
-                    gltf-model="#agora">
+                    occlusion-component="occlusionModelUrl: assets/agora_model.glb;
+                                         occludedModelUrl: assets/agora_plane.glb;
+                                         occlusionModelPosition: 2.3 0.0 0.9;
+                                         occlusionModelRotation: 0 0 0;
+                                         occlusionModelScale: 4.5 4.5 4.5;
+                                         occlusionModelPart: false;
+                                         partNames: Beta_Surface; 
+                                         occludedModelPosition: 2.3 0.0 0.9;
+                                         occludedModelRotation: 0 0 0;
+                                         occludedModelScale: 4.5 4.5 4.5;">
                 </a-entity>
 <!--
                 <a-entity 
