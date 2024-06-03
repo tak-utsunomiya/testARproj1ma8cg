@@ -18,7 +18,27 @@
         >
             <a-assets>
                 <a-asset-item id="wall" src="assets/House-O3.glb"></a-asset-item>
+                <a-asset-item id="agora" src="assets/agora.glb"></a-asset-item>
             </a-assets>
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
+                url="assets/agora.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                smooth="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity 
+                    position="0.0 0.0 0.0" 
+                    rotation="0 0 0"
+                    scale="18 18 18"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#agora">
+                </a-entity>
+<!--
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -37,6 +57,7 @@
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#wall">
                 </a-entity>
+-->
 <!--
                 <a-image
                     src="assets/2_1_output_heat_all.png"
