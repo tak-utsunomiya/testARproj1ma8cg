@@ -7,6 +7,22 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
+    <script>
+    AFRAME.registerComponent('my-component', {
+      schema: { opacity: { default: 1.0 } },
+      update: function () {
+        var mesh = this.el.getObject3D('mesh');
+        var data = this.data;
+        if (!mesh) return;
+        mesh.traverse(function (node) {
+            if (!node.isMesh) return;
+            node.material.opacity = data.opacity;
+            node.material.transparent = data.opacity < 1.0;
+            node.material.needsUpdate = true;
+        });
+      }
+  });
+  </script>
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
@@ -34,6 +50,10 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
+                <a-box position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9" 
+                my-opacity="opacity: 0.50"
+                animation='property: my-component.opacity;from: 1; to: 0; dur: 500;loop: true; dir: alternate;'></a-box>
+<!--
                 <a-entity 
                     gltf-model="#houseo"
                     position="2.3 0.0 1.2" 
@@ -44,6 +64,7 @@
                     from: 0; to: 1; dir: alternate; dur: 1000; loop: true"
                     >
                 </a-entity>
+-->
             </a-marker>
             <a-marker
                 id="animated-marker"
