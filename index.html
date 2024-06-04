@@ -103,6 +103,7 @@
                 my-opacity="opacity: 0.50"
                 animation='property: my-component.opacity;from: 1; to: 0; dur: 500;loop: true; dir: alternate;'></a-box>
 -->
+<!--
                 <a-entity 
                     gltf-model="#houseo_area"
                     position="2.3 0.0 1.2" 
@@ -112,6 +113,17 @@
                     animation='property: model-relative-opacity.opacity;from: 1; to: 0; dur: 2500;loop: true; dir: alternate; startEvents: model-loaded'
                 >
                 </a-entity> 
+-->
+                <a-image
+                    src="assets/heatmap_1_houseo_max2.png"
+                    width="1.33"
+                    height="1"
+                    scale="4.2 4.2 4.2"
+                    rotation="-90 0 0"
+                    position="3.5 0.1 -0.5"
+                    model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;from: 1; to: 0; dur: 2500;loop: true; dir: alternate; startEvents: model-loaded'
+                ></a-image>
 <!--
                 <a-entity 
                     gltf-model="#houseo_area"
