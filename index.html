@@ -9,7 +9,7 @@
     </head>
     <script>
     AFRAME.registerComponent('my-component', {
-      schema: { opacity: { default: 0.5 } },
+      schema: { opacity: { default: 1.0 } },
       update: function () {
         var mesh = this.el.getObject3D('mesh');
         var data = this.data;
@@ -17,7 +17,7 @@
         mesh.traverse(function (node) {
             if (!node.isMesh) return;
             node.material.opacity = data.opacity;
-            node.material.transparent = data.opacity < 0.5;
+            node.material.transparent = data.opacity < 1.0;
             node.material.needsUpdate = true;
         });
       }
@@ -65,7 +65,7 @@
                     scale="4.5 4.5 4.5"
                     material="transparent: true"
                     my-opacity="opacity: 0.50"
-                    animation='property: my-component.opacity;from: 0.5; to: 0; dur: 1000; loop: true; dir: alternate;'
+                    animation='property: my-component.opacity;from: 1; to: 0.1; dur: 1000; loop: true; dir: alternate;'
                     >
                 </a-entity>
                 <a-entity 
