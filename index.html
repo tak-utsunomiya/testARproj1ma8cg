@@ -7,68 +7,6 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
-<!--
-<script>
-    AFRAME.registerComponent('model-relative-opacity', {
-        schema: { opacity: { default: 1.0 } },
-        init: function () {
-            this.nodeMap = {}
-            this.prepareMap.bind(this)
-            this.traverseMesh.bind(this)
-
-        this.el.addEventListener('model-loaded', e => {
-            this.prepareMap()
-            this.update()
-        });
-    },
-    prepareMap: function () {
-        this.traverseMesh(node => {
-            this.nodeMap[node.uuid] = node.material.opacity
-        })
-    },
-    update: function () {
-        this.traverseMesh(node => {
-            node.material.opacity = this.nodeMap[node.uuid] * this.data.opacity
-            node.material.transparent = node.material.opacity < 1.0;
-            node.material.needsUpdate = true;
-        })
-    },
-    remove: function () {
-        this.traverseMesh(node => {
-            node.material.opacity = this.nodeMap[node.uuid]
-            node.material.transparent = node.material.opacity < 1.0;
-            node.material.needsUpdate = true;
-        })
-    },
-    traverseMesh: function (func) {
-        var mesh = this.el.getObject3D('mesh');
-        if (!mesh) { return; }
-        mesh.traverse(node => {
-            if (node.isMesh) {
-                func(node)
-            }
-        });
-    }
-    });
-</script>
--->
-
-    <script>
-    AFRAME.registerComponent('my-component', {
-      schema: { opacity: { default: 1.0 } },
-      update: function () {
-        var mesh = this.el.getObject3D('mesh');
-        var data = this.data;
-        if (!mesh) return;
-        mesh.traverse(function (node) {
-            if (!node.isMesh) return;
-            node.material.opacity = data.opacity;
-            node.material.transparent = data.opacity < 1.0;
-            node.material.needsUpdate = true;
-        });
-      }
-  });
-  </script>
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             vr-mode-ui="enabled: false;"
@@ -87,55 +25,6 @@
                 <a-asset-item id="bp" src="assets/bp.glb"></a-asset-item>
                 <a-asset-item id="agora" src="assets/agora.glb"></a-asset-item>
             </a-assets>
-            <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="assets/houseo.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                smooth="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-<!--
-                <a-box position="0 0.5 -3" rotation="0 45 0" color="#4CC3D9" 
-                my-opacity="opacity: 0.50"
-                animation='property: my-component.opacity;from: 1; to: 0; dur: 500;loop: true; dir: alternate;'></a-box>
--->
-                <a-entity 
-                    gltf-model="#houseo_area"
-                    position="2.3 0.0 1.2" 
-                    rotation="0 0 0"
-                    scale="4.5 4.5 4.5"
-                    material="transparent: true"
-                    my-opacity="opacity: 0.50"
-                    animation='property: my-component.opacity;from: 1; to: 0.1; dur: 1000; loop: true; dir: alternate;'
-                >
-                </a-entity> 
-<!--
-                <a-entity 
-                    gltf-model="#houseo_area"
-                    position="2.3 0.0 1.2" 
-                    rotation="0 0 0"
-                    scale="4.5 4.5 4.5"
-                    material="transparent: false"
-                    my-opacity="opacity: 0.50"
-                    animation='property: my-component.opacity;from: 1; to: 0.1; dur: 1000; loop: true; dir: alternate;'
-                    >
-                </a-entity>
--->
-<!--
-                <a-entity 
-                    gltf-model="#houseo_base"
-                    position="2.3 0.0 1.2" 
-                    rotation="0 0 0"
-                    scale="4.5 4.5 4.5"
-                    material="opacity: 0.1; transparent: true"
-                    >
-                </a-entity>
--->
-            </a-marker>
             <a-marker
                 id="animated-marker"
                 type="pattern"
