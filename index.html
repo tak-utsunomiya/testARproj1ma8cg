@@ -6,7 +6,51 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <script>
+            AFRAME.registerComponent('model-relative-opacity', {
+                schema: { opacity: { default: 1.0 } },
+                init: function () {
+                    this.nodeMap = {}
+                    this.prepareMap.bind(this)
+                    this.traverseMesh.bind(this)
+
+                this.el.addEventListener('model-loaded', e => {
+                    this.prepareMap()
+                    this.update()
+                });
+            },
+            prepareMap: function () {
+                this.traverseMesh(node => {
+                    this.nodeMap[node.uuid] = node.material.opacity
+                })
+            },
+            update: function () {
+                this.traverseMesh(node => {
+                    node.material.opacity = this.nodeMap[node.uuid] * this.data.opacity
+                    node.material.transparent = node.material.opacity < 1.0;
+                    node.material.needsUpdate = true;
+                })
+            },
+            remove: function () {
+                this.traverseMesh(node => {
+                    node.material.opacity = this.nodeMap[node.uuid]
+                    node.material.transparent = node.material.opacity < 1.0;
+                    node.material.needsUpdate = true;
+                })
+            },
+            traverseMesh: function (func) {
+                var mesh = this.el.getObject3D('mesh');
+                if (!mesh) { return; }
+                mesh.traverse(node => {
+                    if (node.isMesh) {
+                        func(node)
+                    }
+                });
+            }
+            });
+        </script>
     </head>
+    
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             vr-mode-ui="enabled: false;"
@@ -51,7 +95,8 @@
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_area">
+                    gltf-model="#houseo_area" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;from: 1; to: 0; dur: 2500;loop: true; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
             </a-marker>
             <a-marker
