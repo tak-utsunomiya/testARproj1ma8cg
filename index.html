@@ -94,7 +94,7 @@
                     position="2.3 -0.2 1.2" 
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
-                    material="opacity: 0.1; transparent: true; blending: additive"
+                    material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_area" model-relative-opacity
                     animation='property: model-relative-opacity.opacity;from: 0; to: 0.8; dur: 1000;loop: true; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
@@ -115,7 +115,8 @@
                     rotation="0 0 0"
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#bp_base">
+                    gltf-model="#bp_base" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;from: 0; to: 1; dur: 3000;loop: false; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
                 <a-entity 
                     position="-2.6 0.0 -2.0" 
