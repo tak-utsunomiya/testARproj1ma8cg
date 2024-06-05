@@ -29,6 +29,25 @@
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
+                url="assets/houseo.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                smooth="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity 
+                    position="2.3 0.0 1.2" 
+                    rotation="0 0 0"
+                    scale="4.5 4.5 4.5"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#houseo">
+                </a-entity>
+            </a-marker>
+            <a-marker
+                id="animated-marker"
+                type="pattern"
+                preset="custom"
                 url="assets/bp.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
