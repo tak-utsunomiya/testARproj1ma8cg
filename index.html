@@ -20,10 +20,13 @@
             <a-assets>
                 <a-asset-item id="houseo" src="assets/houseo.glb"></a-asset-item>
                 <a-asset-item id="houseo_base" src="assets/houseo_base.glb"></a-asset-item>
-                <a-asset-item id="houseo_heat" src="assets/houseo_heat.glb"></a-asset-item>
-                <a-asset-item id="houseo_area" src="assets/houseo_area.glb"></a-asset-item>
+                <a-asset-item id="houseo_area" src="assets/houseo_area_max.glb"></a-asset-item>
                 <a-asset-item id="bp" src="assets/bp.glb"></a-asset-item>
+                <a-asset-item id="bp_base" src="assets/bp_base.glb"></a-asset-item>
+                <a-asset-item id="bp_area" src="assets/bp_area_max.glb"></a-asset-item>
                 <a-asset-item id="agora" src="assets/agora.glb"></a-asset-item>
+                <a-asset-item id="agora_base" src="assets/agora_base.glb"></a-asset-item>
+                <a-asset-item id="agora_area" src="assets/agora_area_max.glb"></a-asset-item>
             </a-assets>
             <a-marker
                 id="animated-marker"
@@ -41,7 +44,14 @@
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo">
+                    gltf-model="#houseo_base">
+                </a-entity>
+                <a-entity 
+                    position="2.3 0.0 1.2" 
+                    rotation="0 0 0"
+                    scale="4.5 4.5 4.5"
+                    material="opacity: 0.1; transparent: true"
+                    gltf-model="#houseo_area">
                 </a-entity>
             </a-marker>
             <a-marker
