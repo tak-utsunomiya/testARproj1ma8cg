@@ -12,17 +12,17 @@
                     this.prepareMap.bind(this)
                     this.traverseMesh.bind(this)
 
-                // this.el.addEventListener('model-loaded', e => {
-                //     this.prepareMap()
-                //     this.update()
-                // });
-                this.el.addEventListener('markerFound', function () {
+                this.el.addEventListener('model-loaded', e => {
                     this.prepareMap()
                     this.update()
                 });
-                this.el.addEventListener('markerLost', function () {
-                    // NOP
-                });
+                // this.el.addEventListener('markerFound', function () {
+                //     this.prepareMap()
+                //     this.update()
+                // });
+                // this.el.addEventListener('markerLost', function () {
+                //     // NOP
+                // });
             },
             prepareMap: function () {
                 this.traverseMesh(node => {
@@ -69,12 +69,15 @@
                 <a-asset-item id="houseo" src="assets/houseo.glb"></a-asset-item>
                 <a-asset-item id="houseo_base" src="assets/houseo_base.glb"></a-asset-item>
                 <a-asset-item id="houseo_area" src="assets/houseo_area_maxg2.glb"></a-asset-item>
+                <a-asset-item id="houseo_line" src="assets/houseo_line.glb"></a-asset-item>
                 <a-asset-item id="bp" src="assets/bp.glb"></a-asset-item>
                 <a-asset-item id="bp_base" src="assets/bp_base.glb"></a-asset-item>
                 <a-asset-item id="bp_area" src="assets/bp_area_maxg2.glb"></a-asset-item>
+                <a-asset-item id="bp_line" src="assets/bp_line.glb"></a-asset-item>
                 <a-asset-item id="agora" src="assets/agora.glb"></a-asset-item>
                 <a-asset-item id="agora_base" src="assets/agora_base.glb"></a-asset-item>
                 <a-asset-item id="agora_area" src="assets/agora_area_maxg2.glb"></a-asset-item>
+                <a-asset-item id="agora_line" src="assets/agora_line.glb"></a-asset-item>
             </a-assets>
             <a-marker
                 id="animated-marker"
@@ -82,10 +85,10 @@
                 preset="custom"
                 url="assets/houseo.patt"
                 raycaster="objects: .clickable"
+                emitevents="true"
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
-                model-relative-opacity
             >
                 <a-entity 
                     position="2.3 -0.2 1.2" 
@@ -93,15 +96,15 @@
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_base" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
                 <a-entity 
                     position="2.3 -0.2 1.2" 
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_area" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    gltf-model="#houseo_line" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
             </a-marker>
             <a-marker
@@ -114,23 +117,22 @@
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerB"
-                model-relative-opacity
             >
                 <a-entity 
                     position="-2.6 0.0 -2.0" 
                     rotation="0 0 0"
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#bp_base"
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    gltf-model="#bp_base" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
                 <a-entity 
                     position="-2.6 0.0 -2.0" 
                     rotation="0 0 0"
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#bp_area"
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    gltf-model="#bp_line" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
             </a-marker>
             <a-marker
@@ -143,23 +145,22 @@
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerC"
-                model-relative-opacity
             >
                 <a-entity 
                     position="2.3 0.0 0.9" 
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#agora_base"
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    gltf-model="#agora_base" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
                 <a-entity 
                     position="2.3 0.0 0.9" 
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#agora_area"
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    gltf-model="#agora_line" model-relative-opacity
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: model-loaded'>
                 </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
