@@ -18,13 +18,13 @@
                 // }
                 this.el.addEventListener('markerFound', e => {
                     var markerId = marker.id;
-				    console.log('markerFound', markerId);
+		    console.log('markerFound', markerId);
                     this.prepareMap()
                     this.update()
                 }
                 this.el.addEventListener('markerLost', e => {
-				    var markerId = marker.id;
-				    console.log('markerLost', markerId);
+		    var markerId = marker.id;
+		    console.log('markerLost', markerId);
                 });
             },
             prepareMap: function () {
