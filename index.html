@@ -21,10 +21,6 @@
 		    console.log('markerFound', markerId);
                     this.prepareMap()
                     this.update()
-                }
-                this.el.addEventListener('markerLost', e => {
-		    var markerId = marker.id;
-		    console.log('markerLost', markerId);
                 });
             },
             prepareMap: function () {
