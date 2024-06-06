@@ -82,7 +82,6 @@
                 preset="custom"
                 url="assets/houseo.patt"
                 raycaster="objects: .clickable"
-                emitevents="true"
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
@@ -93,7 +92,7 @@
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_base"
+                    gltf-model="#houseo_base" model-relative-opacity
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
                 </a-entity>
                 <a-entity 
@@ -101,7 +100,7 @@
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_area"
+                    gltf-model="#houseo_area" model-relative-opacity
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
                 </a-entity>
             </a-marker>
