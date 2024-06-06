@@ -12,9 +12,16 @@
                     this.prepareMap.bind(this)
                     this.traverseMesh.bind(this)
 
-                this.el.addEventListener('marker-detected', e => {
+                // this.el.addEventListener('model-loaded', e => {
+                //     this.prepareMap()
+                //     this.update()
+                // });
+                this.el.sceneEl.addEventListener('markerFound', function () {
                     this.prepareMap()
                     this.update()
+                });
+                this.el.sceneEl.addEventListener('markerLost', function () {
+                    // NOP
                 });
             },
             prepareMap: function () {
