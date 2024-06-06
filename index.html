@@ -12,9 +12,19 @@
                     this.prepareMap.bind(this)
                     this.traverseMesh.bind(this)
 
-                this.el.addEventListener('model-loaded', e => {
+                // this.el.addEventListener('model-loaded', e => {
+                //     this.prepareMap()
+                //     this.update()
+                // }
+                this.el.addEventListener('markerFound', e => {
+                    var markerId = marker.id;
+				    console.log('markerFound', markerId);
                     this.prepareMap()
                     this.update()
+                }
+                this.el.addEventListener('markerLost', e => {
+				    var markerId = marker.id;
+				    console.log('markerLost', markerId);
                 });
             },
             prepareMap: function () {
