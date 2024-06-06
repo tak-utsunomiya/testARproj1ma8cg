@@ -16,11 +16,11 @@
                 //     this.prepareMap()
                 //     this.update()
                 // });
-                this.el.sceneEl.addEventListener('markerFound', function () {
+                this.el.addEventListener('markerFound', function () {
                     this.prepareMap()
                     this.update()
                 });
-                this.el.sceneEl.addEventListener('markerLost', function () {
+                this.el.addEventListener('markerLost', function () {
                     // NOP
                 });
             },
@@ -86,13 +86,14 @@
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
+                model-relative-opacity
             >
                 <a-entity 
                     position="2.3 -0.2 1.2" 
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_base" model-relative-opacity
+                    gltf-model="#houseo_base"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
                 </a-entity>
                 <a-entity 
@@ -100,7 +101,7 @@
                     rotation="0 1 0"
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#houseo_area" model-relative-opacity
+                    gltf-model="#houseo_area"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
                 </a-entity>
             </a-marker>
@@ -114,13 +115,14 @@
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerB"
+                model-relative-opacity
             >
                 <a-entity 
                     position="-2.6 0.0 -2.0" 
                     rotation="0 0 0"
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#bp_base" model-relative-opacity
+                    gltf-model="#bp_base"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
                 </a-entity>
                 <a-entity 
@@ -128,7 +130,7 @@
                     rotation="0 0 0"
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#bp_area" model-relative-opacity
+                    gltf-model="#bp_area"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
                 </a-entity>
             </a-marker>
@@ -142,13 +144,14 @@
                 smooth="true"
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerC"
+                model-relative-opacity
             >
                 <a-entity 
                     position="2.3 0.0 0.9" 
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#agora_base" model-relative-opacity
+                    gltf-model="#agora_base"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
                 </a-entity>
                 <a-entity 
@@ -156,7 +159,7 @@
                     rotation="0 0 0"
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
-                    gltf-model="#agora_area" model-relative-opacity
+                    gltf-model="#agora_area"
                     animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
                 </a-entity>
             </a-marker>
