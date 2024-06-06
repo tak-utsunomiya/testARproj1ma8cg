@@ -12,13 +12,7 @@
                     this.prepareMap.bind(this)
                     this.traverseMesh.bind(this)
 
-                // this.el.addEventListener('model-loaded', e => {
-                //     this.prepareMap()
-                //     this.update()
-                // });
-                this.el.addEventListener('markerFound', e => {
-                    var markerId = marker.id;
-		    console.log('markerFound', markerId);
+                this.el.addEventListener('marker-detected', e => {
                     this.prepareMap()
                     this.update()
                 });
@@ -92,7 +86,7 @@
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_base" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
                 <a-entity 
                     position="2.3 -0.2 1.2" 
@@ -100,7 +94,7 @@
                     scale="4.6 4.6 4.6"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#houseo_area" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
             </a-marker>
             <a-marker
@@ -120,7 +114,7 @@
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#bp_base" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
                 <a-entity 
                     position="-2.6 0.0 -2.0" 
@@ -128,7 +122,7 @@
                     scale="3.2 3.2 3.2"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#bp_area" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
             </a-marker>
             <a-marker
@@ -148,7 +142,7 @@
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#agora_base" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart;from: 0; to: 0.9; dur: 6000;loop: false; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
                 <a-entity 
                     position="2.3 0.0 0.9" 
@@ -156,7 +150,7 @@
                     scale="4.5 4.5 4.5"
                     material="opacity: 0.1; transparent: true"
                     gltf-model="#agora_area" model-relative-opacity
-                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: markerFound'>
+                    animation='property: model-relative-opacity.opacity;easing: easeInQuart; from: 0; to: 0.8; dur: 3000;loop: true; dir: alternate; startEvents: marker-detected'>
                 </a-entity>
             </a-marker>
             <a-entity camera></a-entity>
